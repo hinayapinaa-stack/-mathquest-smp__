@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#087e8b">
+  <meta name="description" content="MathQuest SMP - permainan matematika dan kompetisi tiga kelompok.">
+  <link rel="manifest" href="./manifest.json">
+  <title>MathQuest SMP - Kompetisi Kelompok</title>
+  <style>
+    :root{--primary:#087e8b;--deep:#075766;--accent:#f4a62a;--ink:#18343b;--muted:#64777b;--paper:#fff;--bg:#eef8f8;--green:#16865b}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#eaf7f8,#fff8e9);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+    .wrap{max-width:900px;margin:auto;padding:22px 15px 50px}.hero{background:linear-gradient(120deg,#087e8b,#19a5a5);color:#fff;border-radius:25px;padding:25px 22px;box-shadow:0 12px 30px #087e8b30}
+    h1{margin:0 0 6px;font-size:clamp(27px,5vw,40px)}.hero p{margin:0;opacity:.93}.panel{background:#fff;border:1px solid #d9eeee;border-radius:20px;padding:20px;margin-top:17px;box-shadow:0 7px 22px #164d5510}
+    h2{font-size:20px;margin:0 0 13px}.muted{color:var(--muted);font-size:14px}.field{display:block;margin:12px 0 5px;font-weight:650}
+    input,select{width:100%;padding:13px 14px;border:1.5px solid #c9dfe1;border-radius:12px;font:inherit;background:white;color:var(--ink)}
+    button{border:0;border-radius:13px;padding:13px 18px;background:var(--primary);color:#fff;font:700 15px system-ui;cursor:pointer}
+    button:disabled{opacity:.5;cursor:not-allowed}.secondary{background:#e4f3f3;color:var(--deep)}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
+    .hide{display:none!important}.pill{display:inline-block;padding:5px 10px;border-radius:99px;background:#e4f3f3;color:var(--deep);font-size:12px;font-weight:700}
+    .question{font-size:23px;font-weight:750;margin:12px 0 18px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .answers button{background:#eaf5f5;color:var(--deep);border:1.5px solid #cde5e5;text-align:left}.answers button:hover{background:#d8eeee}
+    .status{padding:11px 13px;border-radius:12px;background:#eaf5f5;color:var(--deep);font-size:14px;margin-top:12px}
+    .good{background:#e9f8f0;color:#126b49}.bad{background:#fff0f1;color:#a52d48}
+    table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 7px;border-bottom:1px solid #e3eeee}th{color:var(--muted)}
+    .winner{background:#fff7d8;border:1px solid #f3df8a;padding:14px;border-radius:14px;font-weight:700}
+    .small{font-size:12px;color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+    @media(max-width:520px){.answers{grid-template-columns:1fr}.row{display:grid;grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>🚀 MathQuest SMP</h1>
+    <p>Petualangan matematika • Kompetisi Kelompok 1, 2, dan 3</p>
+  </header>
+
+  <section class="panel" id="identityPanel">
+    <h2>👩‍🎓 Identitas Kelompok</h2>
+    <p><b>Mata Kuliah:</b> Pengantar Pendidikan</p>
+    <p><b>Kelompok 2</b></p>
+    <div class="row">
+      <div class="status">1. Komang Ira Widiani</div>
+      <div class="status">2. Kirana Zahrani</div>
+      <div class="status">3. Nur Alfi Khaerani</div>
+      <div class="status">4. Ichlasul Amal</div>
+    </div>
+  </section>
+
+  <section class="panel" id="objectivePanel">
+    <h2>🎯 Tujuan Pembelajaran</h2>
+    <p>Setelah menggunakan MathQuest SMP, peserta didik diharapkan mampu:</p>
+    <ol>
+      <li>Memahami konsep operasi bilangan bulat, pecahan, perbandingan, dan aljabar dasar.</li>
+      <li>Menyelesaikan soal matematika sesuai materi yang disajikan dalam permainan.</li>
+      <li>Mengembangkan kemampuan berpikir logis, kritis, dan sistematis.</li>
+      <li>Meningkatkan ketelitian, konsentrasi, dan kemampuan memecahkan masalah.</li>
+      <li>Meningkatkan motivasi belajar melalui kegiatan individu maupun kompetisi kelompok.</li>
+    </ol>
+  </section>
+
+  <section class="panel" id="guidePanel">
+    <h2>📖 Petunjuk Penggunaan</h2>
+    <h3>👩‍🏫 Untuk Guru</h3>
+    <ol>
+      <li>Perkenalkan tujuan dan aturan permainan kepada peserta didik.</li>
+      <li>Pastikan peserta didik terhubung ke internet agar dapat masuk dan mengirimkan skor ke Firebase.</li>
+      <li>Bagikan tautan aplikasi kepada Kelompok 1, 2, dan 3.</li>
+      <li>Arahkan setiap peserta memasukkan nama dan memilih kelompok yang benar.</li>
+      <li>Gunakan papan peringkat sebagai bahan evaluasi dan diskusi setelah permainan.</li>
+    </ol>
+    <h3>🧑‍🎓 Untuk Siswa</h3>
+    <ol>
+      <li>Buka aplikasi MathQuest SMP melalui tautan yang dibagikan guru.</li>
+      <li>Masukkan nama dan pilih kelompok 1, 2, atau 3.</li>
+      <li>Tekan tombol <b>Mulai tantangan</b>.</li>
+      <li>Baca setiap soal, lalu pilih satu jawaban yang benar.</li>
+      <li>Setelah 10 soal selesai, tekan <b>Simpan hasil ke papan peringkat</b>.</li>
+      <li>Lihat papan peringkat untuk mengetahui posisi kelompok.</li>
+    </ol>
+    <div class="status"><b>Catatan:</b> Aplikasi dapat dibuka dari tautan GitHub Pages. Koneksi internet diperlukan untuk autentikasi Firebase, menyimpan skor, dan memperbarui papan peringkat secara langsung.</div>
+  </section>
+
+  <section class="panel" id="joinPanel">
+    <h2>🎮 Masuk ke permainan</h2>
+    <p class="muted">Masukkan nama pemain dan pilih kelompok. Semua kelompok menggunakan aplikasi dan papan peringkat yang sama.</p>
+    <label class="field" for="playerName">Nama pemain</label>
+    <input id="playerName" maxlength="30" placeholder="Contoh: Alfi">
+    <label class="field" for="groupSelect">Pilih kelompok</label>
+    <select id="groupSelect">
+      <option value="1">Kelompok 1</option>
+      <option value="2">Kelompok 2</option>
+      <option value="3">Kelompok 3</option>
+    </select>
+    <div class="row" style="margin-top:15px">
+      <button id="startBtn">Mulai tantangan</button>
+      <button class="secondary" id="showBoardBtn">Lihat papan peringkat</button>
+    </div>
+    <div class="status" id="connectionStatus">Memeriksa koneksi Firebase…</div>
+  </section>
+
+  <section class="panel hide" id="quizPanel">
+    <div class="row">
+      <span class="pill" id="playerPill"></span>
+      <span class="pill" id="progressPill">Soal 1/10</span>
+      <span class="pill" id="timerPill">00:00</span>
+    </div>
+    <div class="question" id="questionText"></div>
+    <div class="answers" id="answerButtons"></div>
+    <div class="status hide" id="feedback"></div>
+  </section>
+
+  <section class="panel hide" id="resultPanel">
+    <h2>🏁 Tantangan selesai!</h2>
+    <div id="resultSummary"></div>
+    <div class="row" style="margin-top:15px">
+      <button id="saveBtn">Simpan hasil ke papan peringkat</button>
+      <button class="secondary" id="againBtn">Kembali ke awal</button>
+    </div>
+    <div class="status" id="saveStatus">Hasil belum dikirim.</div>
+  </section>
+
+  <section class="panel" id="boardPanel">
+    <div class="row">
+      <div><h2>🏆 Papan peringkat bersama</h2><p class="muted">Hasil diperbarui otomatis ketika pemain mengirimkan skor.</p></div>
+      <button class="secondary" id="refreshBtn">Perbarui</button>
+    </div>
+    <div id="winnerBox" class="winner">Menunggu hasil dari ketiga kelompok…</div>
+    <div style="overflow-x:auto;margin-top:12px">
+      <table>
+        <thead><tr><th>Posisi</th><th>Pemain</th><th>Kelompok</th><th>Skor</th><th>Waktu</th></tr></thead>
+        <tbody id="leaderboardBody"><tr><td colspan="5">Memuat papan peringkat…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="small">Pemenang kelompok ditentukan dari waktu tercepat yang berhasil menyelesaikan 10 soal. Jika waktu sama, skor lebih tinggi menjadi penentu.</p>
+  </section>
+
+  <footer>MathQuest SMP • Pengantar Pendidikan • Kelompok 2</footer>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+  import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  // Konfigurasi dari proyek Firebase milik kelompok.
+  const firebaseConfig = {
+    apiKey: "AIzaSyAl5XzN_o9oc7rSD7kCpWjMSrfWQUgtio8",
+    authDomain: "mathquest-97be3.firebaseapp.com",
+    projectId: "mathquest-97be3",
+    storageBucket: "mathquest-97be3.firebasestorage.app",
+    messagingSenderId: "772929165895",
+    appId: "1:772929165895:web:7b170c59e683c6f3d76f62",
+    measurementId: "G-4L79F4Q1N5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const questions = [
+    {q:"Hasil dari −8 + 13 adalah …",a:["5","−5","21","−21"],c:0},
+    {q:"Hasil dari 7 − 15 adalah …",a:["8","−8","22","−22"],c:1},
+    {q:"Hasil dari (−6) × 4 adalah …",a:["24","−10","−24","10"],c:2},
+    {q:"Hasil dari (−36) ÷ (−6) adalah …",a:["−6","6","−30","30"],c:1},
+    {q:"Hasil dari 1/2 + 1/4 adalah …",a:["2/6","3/4","1/8","1/4"],c:1},
+    {q:"Hasil dari 3/4 − 1/2 adalah …",a:["1/4","2/2","1/2","2/4"],c:0},
+    {q:"Perbandingan 6 : 9 dalam bentuk paling sederhana adalah …",a:["2 : 3","3 : 2","6 : 3","1 : 3"],c:0},
+    {q:"Jika 3 buku berharga Rp18.000, harga 5 buku adalah …",a:["Rp25.000","Rp30.000","Rp36.000","Rp45.000"],c:1},
+    {q:"Jika x + 7 = 15, nilai x adalah …",a:["6","7","8","9"],c:2},
+    {q:"Bentuk sederhana dari 3a + 2a adalah …",a:["5","5a","6a","a⁵"],c:1}
+  ];
+
+  const $ = id => document.getElementById(id);
+  let currentUser=null, player="", group="1", order=[], index=0, score=0, startedAt=0, elapsed=0, timer=null, saved=false;
+  let unsubscribeBoard=null, latestResults=[];
+
+  const fmt = ms => { const s=Math.floor(ms/1000); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); };
+  const show = id => $(id).classList.remove("hide");
+  const hide = id => $(id).classList.add("hide");
+
+  async function init(){
+    try{
+      await signInAnonymously(auth);
+      $("connectionStatus").textContent="Terhubung ke Firebase. Siap bermain dan mengirim hasil.";
+      $("connectionStatus").className="status good";
+    }catch(e){
+      $("connectionStatus").textContent="Belum terhubung ke Firebase: "+e.message+". Pastikan Anonymous Authentication dan Firestore sudah diaktifkan.";
+      $("connectionStatus").className="status bad";
+    }
+    onAuthStateChanged(auth,u=>{currentUser=u;});
+    listenBoard();
+  }
+
+  function listenBoard(){
+    if(unsubscribeBoard) unsubscribeBoard();
+    const q=query(collection(db,"mathquest_results"),orderBy("elapsedMs","asc"),limit(100));
+    unsubscribeBoard=onSnapshot(q,snap=>{
+      latestResults=snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderBoard();
+    },err=>{
+      $("leaderboardBody").innerHTML='<tr><td colspan="5">Papan peringkat belum tersedia. Periksa Firestore dan Security Rules.</td></tr>';
+      $("winnerBox").textContent="Belum dapat memuat hasil: "+err.message;
+    });
+  }
+
+  function renderBoard(){
+    const body=$("leaderboardBody");
+    if(!latestResults.length){
+      body.innerHTML='<tr><td colspan="5">Belum ada hasil. Jadilah kelompok pertama yang menyelesaikan tantangan!</td></tr>';
+      $("winnerBox").textContent="Menunggu hasil dari ketiga kelompok…"; return;
+    }
+    body.innerHTML=latestResults.slice(0,20).map((r,i)=>`<tr><td>${i+1}</td><td>${escapeHtml(r.playerName||"-")}</td><td>Kelompok ${r.group}</td><td>${r.score}/100</td><td>${fmt(r.elapsedMs)}</td></tr>`).join("");
+    const bestByGroup=[1,2,3].map(g=>{
+      const entries=latestResults.filter(r=>String(r.group)===String(g));
+      entries.sort((a,b)=>(a.elapsedMs-b.elapsedMs)||(b.score-a.score));
+      return entries.length?{group:g,...entries[0]}:null;
+    }).filter(Boolean).sort((a,b)=>(a.elapsedMs-b.elapsedMs)||(b.score-a.score));
+    if(!bestByGroup.length){$("winnerBox").textContent="Menunggu hasil…";return;}
+    if(bestByGroup.length<3){
+      $("winnerBox").textContent="Kelompok yang sudah mengirim hasil: "+bestByGroup.map(x=>"Kelompok "+x.group).join(", ")+". Menunggu kelompok lainnya.";
+    }else{
+      const w=bestByGroup[0];
+      $("winnerBox").textContent=`🏆 Pemenang sementara: Kelompok ${w.group} — ${w.playerName}, waktu ${fmt(w.elapsedMs)}, skor ${w.score}/100.`;
+    }
+  }
+
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+  function startGame(){
+    player=$("playerName").value.trim(); group=$("groupSelect").value;
+    if(!player){alert("Masukkan nama pemain terlebih dahulu.");$("playerName").focus();return;}
+    if(!currentUser){alert("Firebase belum siap. Pastikan koneksi internet dan pengaturan Firebase sudah benar.");return;}
+    order=[...questions.keys()].sort(()=>Math.random()-.5); index=0;score=0;saved=false;startedAt=Date.now();
+    $("playerPill").textContent=player+" • Kelompok "+group;
+    hide("joinPanel");hide("resultPanel");show("quizPanel");
+    clearInterval(timer);timer=setInterval(()=>$("timerPill").textContent=fmt(Date.now()-startedAt),250);
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    const q=questions[order[index]];
+    $("progressPill").textContent=`Soal ${index+1}/10`;
+    $("questionText").textContent=q.q;
+    $("feedback").textContent="";hide("feedback");
+    const box=$("answerButtons");box.innerHTML="";
+    q.a.forEach((ans,i)=>{
+      const b=document.createElement("button");b.textContent=ans;b.onclick=()=>choose(i);box.appendChild(b);
+    });
+  }
+
+  function choose(choice){
+    const q=questions[order[index]];
+    [...$("answerButtons").children].forEach(b=>b.disabled=true);
+    const correct=choice===q.c;
+    if(correct)score+=10;
+    $("feedback").textContent=correct?"Benar! +10 poin.":"Belum tepat. Tetap semangat!";
+    $("feedback").className="status "+(correct?"good":"bad");show("feedback");
+    setTimeout(()=>{
+      index++;
+      if(index<10)renderQuestion();else finishGame();
+    },650);
+  }
+
+  function finishGame(){
+    clearInterval(timer);elapsed=Date.now()-startedAt;
+    hide("quizPanel");show("resultPanel");
+    $("resultSummary").innerHTML=`<p><b>${escapeHtml(player)}</b> dari <b>Kelompok ${group}</b></p><p>Skor: <b>${score}/100</b></p><p>Waktu: <b>${fmt(elapsed)}</b></p>`;
+    $("saveBtn").disabled=false;$("saveStatus").textContent="Tekan tombol untuk mengirim hasil ke papan peringkat bersama.";
+  }
+
+  async function saveResult(){
+    if(saved)return;
+    if(!currentUser){$("saveStatus").textContent="Tidak ada koneksi Firebase. Sambungkan internet lalu coba lagi.";return;}
+    $("saveBtn").disabled=true;$("saveStatus").textContent="Mengirim hasil…";
+    try{
+      await addDoc(collection(db,"mathquest_results"),{
+        playerName:player,group:Number(group),score,elapsedMs:elapsed,
+        totalQuestions:10,uid:currentUser.uid,createdAt:serverTimestamp()
+      });
+      saved=true;$("saveStatus").textContent="Berhasil! Hasilmu sudah masuk ke papan peringkat semua kelompok.";
+      $("saveStatus").className="status good";
+    }catch(e){
+      $("saveBtn").disabled=false;$("saveStatus").textContent="Gagal menyimpan: "+e.message;
+      $("saveStatus").className="status bad";
+    }
+  }
+
+  $("startBtn").addEventListener("click",startGame);
+  $("showBoardBtn").addEventListener("click",()=>$("boardPanel").scrollIntoView({behavior:"smooth"}));
+  $("refreshBtn").addEventListener("click",listenBoard);
+  $("saveBtn").addEventListener("click",saveResult);
+  $("againBtn").addEventListener("click",()=>{hide("resultPanel");show("joinPanel");$("saveStatus").className="status";});
+  if("serviceWorker" in navigator) window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+  init();
+</script>
+</body>
+</html>

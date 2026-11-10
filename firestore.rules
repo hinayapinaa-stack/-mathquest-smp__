@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /mathquest_results/{resultId} {
+      // Hasil kompetisi dapat dibaca semua pemain yang sudah login anonim.
+      allow read: if request.auth != null;
+
+      // Pemain hanya boleh mengirim hasil atas UID anonim miliknya sendiri.
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.playerName is string
+        && request.resource.data.playerName.size() > 0
+        && request.resource.data.playerName.size() <= 30
+        && request.resource.data.group in [1, 2, 3]
+        && request.resource.data.score is int
+        && request.resource.data.score >= 0
+        && request.resource.data.score <= 100
+        && request.resource.data.elapsedMs is int
+        && request.resource.data.elapsedMs > 0
+        && request.resource.data.totalQuestions == 10;
+
+      // Hasil yang sudah terkirim tidak dapat diubah atau dihapus dari aplikasi.
+      allow update, delete: if false;
+    }
+  }
+}

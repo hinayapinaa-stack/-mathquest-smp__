@@ -1,0 +1,9 @@
+{
+  "name": "MathQuest SMP - Kompetisi Kelompok",
+  "short_name": "MathQuest SMP",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#eef8f8",
+  "theme_color": "#087e8b",
+  "description": "Permainan matematika SMP dan papan peringkat realtime untuk tiga kelompok."
+}

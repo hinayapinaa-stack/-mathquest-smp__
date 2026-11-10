@@ -1,0 +1,11 @@
+PETUNJUK SINGKAT
+1. Aktifkan Authentication > Anonymous.
+2. Buat Firestore Database.
+3. Salin isi firestore.rules ke tab Rules Firestore, lalu Publish.
+4. Deploy folder ini menggunakan Firebase Hosting (lihat PETUNJUK.txt).
+5. Semua kelompok membuka URL Hosting yang sama.
+6. Pemain memasukkan nama, memilih Kelompok 1/2/3, lalu mengerjakan 10 soal.
+7. Setelah selesai tekan "Simpan hasil ke papan peringkat".
+8. Papan peringkat akan diperbarui otomatis di perangkat semua kelompok.
+
+Catatan: leaderboard bersama memerlukan internet. Mode offline tidak dapat menyinkronkan hasil ke perangkat lain.
